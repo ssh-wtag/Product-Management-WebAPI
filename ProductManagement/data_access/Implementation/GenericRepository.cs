@@ -40,23 +40,23 @@ namespace data_access.Implementation
             return await _context.Set<T>().Where(predicate).ToListAsync();
         }
 
-        public async void AddAsync(T entity)
+        public async Task AddAsync(T entity)
         {
             await _context.Set<T>().AddAsync(entity);
         }
 
-        public async void AddRangeAsync(IEnumerable<T> entities)
+        public async Task AddRangeAsync(IEnumerable<T> entities)
         {
             await _context.Set<T>().AddRangeAsync(entities);
         }
 
-        public async void RemoveAsync(T entity)
+        public async Task RemoveAsync(T entity)
         {
             _context.Set<T>().Remove(entity);
             await Task.CompletedTask; //Redundant, used for consistency
         }
 
-        public async void RemoveRangeAsync(IEnumerable<T> entities)
+        public async Task RemoveRangeAsync(IEnumerable<T> entities)
         {
             _context.Set<T>().RemoveRange(entities);
             await Task.CompletedTask;

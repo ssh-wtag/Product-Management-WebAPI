@@ -8,11 +8,11 @@ namespace domain.Repositories
 {
     public interface IUnitOfWork : IDisposable
     {
-        ISellerRepository SellerRepository { get; }
-        IProductRepository ProductRepository { get; }
-        ICategoryRepository CategoryRepository { get; }
-        IStoreRepository StoreRepository { get; }
+        ISellerRepository Seller { get; }
+        IProductRepository Product { get; }
+        ICategoryRepository Category { get; }
+        IStoreRepository Store { get; }
 
-        int Save();
+        Task<int> SaveAsync();
     }
 }

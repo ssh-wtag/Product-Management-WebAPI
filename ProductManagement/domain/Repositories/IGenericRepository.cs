@@ -15,12 +15,12 @@ namespace domain.Repositories
 
         Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate);
 
-        void AddAsync(T entity);
+        Task AddAsync(T entity);
 
-        void AddRangeAsync(IEnumerable<T> entities);
+        Task AddRangeAsync(IEnumerable<T> entities);
 
-        void RemoveAsync(T entity);
+        Task RemoveAsync(T entity);
 
-        void RemoveRangeAsync(IEnumerable<T> entities);
+        Task RemoveRangeAsync(IEnumerable<T> entities);
     }
 }
