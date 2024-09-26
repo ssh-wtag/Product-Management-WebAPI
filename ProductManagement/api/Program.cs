@@ -2,6 +2,8 @@
 
 
 using data_access.Context;
+using data_access.Implementation;
+using domain.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +17,10 @@ builder.Services.AddSwaggerGen();
 
 // Add Entity Framework
 builder.Services.AddDbContext<ProductManagementDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ProductConnection")));
+
+
+// Add Unit Of Work Dependency
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>(); // Whenever it encounters IUnitOfWork, It goes to find UnitOfWork
 
 
 var app = builder.Build();
