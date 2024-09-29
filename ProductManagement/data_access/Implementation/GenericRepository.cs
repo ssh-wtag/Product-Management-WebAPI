@@ -13,7 +13,7 @@ namespace data_access.Implementation
     {
         #region Initialization
 
-        private readonly ProductManagementDbContext _context;
+        public readonly ProductManagementDbContext _context;
 
         public GenericRepository(ProductManagementDbContext context)
         {

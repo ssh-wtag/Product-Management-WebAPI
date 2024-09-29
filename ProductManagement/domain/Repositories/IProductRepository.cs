@@ -9,5 +9,6 @@ namespace domain.Repositories
 {
     public interface IProductRepository : IGenericRepository<Product>
     {
+
     }
 }

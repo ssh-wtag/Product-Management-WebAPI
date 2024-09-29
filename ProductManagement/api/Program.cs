@@ -1,16 +1,15 @@
-
-
-
 using data_access.Context;
 using data_access.Implementation;
 using domain.Repositories;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 // Add services to the container.
 builder.Services.AddControllers();
+builder.Services.AddMvc().AddJsonOptions(options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -21,6 +20,7 @@ builder.Services.AddDbContext<ProductManagementDbContext>(options => options.Use
 
 // Add Unit Of Work Dependency
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>(); // Whenever it encounters IUnitOfWork, It goes to find UnitOfWork
+
 
 
 var app = builder.Build();

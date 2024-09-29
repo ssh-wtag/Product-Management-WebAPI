@@ -1,6 +1,7 @@
 ﻿using data_access.Context;
 using domain.Entities;
 using domain.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace data_access.Implementation
     {
         public ProductRepository(ProductManagementDbContext context) : base(context)
         {
+
         }
     }
 }

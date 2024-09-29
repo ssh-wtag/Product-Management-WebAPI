@@ -9,5 +9,6 @@ namespace domain.Repositories
 {
     public interface ISellerRepository : IGenericRepository<Seller>
     {
+        Task<IEnumerable<Product>> ProductsBySellerId(int sellerId);
     }
 }
