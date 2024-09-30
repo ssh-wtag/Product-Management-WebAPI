@@ -23,10 +23,10 @@ namespace api.Controllers
         }
 
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult> GetById(int id)
+        [HttpGet("{sellerId}")]
+        public async Task<ActionResult> GetById(int sellerId)
         {
-            var seller = await _unitOfWork.Seller.GetByIDAsync(id);
+            var seller = await _unitOfWork.Seller.GetByIDAsync(sellerId);
             return Ok(seller);
         }
 
